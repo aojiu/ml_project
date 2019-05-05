@@ -17,4 +17,6 @@ We only use the content to do the sentiment analysis, and keep the date only.
 #### Sentiment Analysis:
 We using Empath sentiment anaylsis.<br>
 github: https://github.com/Ejhfast/empath-client<br>
- 
+The sentiment analysis will analysis a string type of artical, and return a value of how ralevence to the target word.
+##### example:
+
