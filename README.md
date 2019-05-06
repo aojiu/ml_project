@@ -71,3 +71,62 @@ As result, the target for continuous number is close price of each day for apple
 
 ## Linear Regression:
 we used Polynomial Linear Regression with Ridge <br>
+We use 1 - 5 degree transformation for features, with Ridge of 0, 0.35, 0.5 and 0.75 for each degree. 
+
+## SVM
+first we process the target dataset values with difference of open price and close price in a day into 1 and -1. <br>
+Next we apply three different kernal, linear, RBF, and Poly to two datasets with all the news parameters and only three news parameters. <br>
+
+## Neural Network 
+We set up the Keras and TensorFlow for building the model. <br>
+For this two dataset, we change the target value to 1 and 0. If difference price is less than 0, then it is 0, otherwise it is 1. <br>
+For each datasets, the models would apply many different parameters. <br>
+#### hidenLayer : 
+hidden layer as list. eg [10,4,2] is three hiden layer with 10 neurons in first hiden layer, 4 neurons in second layer, and 2 neurons in last layer etc. <br>
+#### activation : 
+activation function. eg. elu, relu, sigmoid, hard_sigmoid, exponential, linear <br>
+#### activity_regularizer: 
+we want regulariz the value after caculating the activation function<br>
+#### optimizer:  
+optimiz function that used to update the parameters each generation. eg. SGD, RMSprop, Adagrad, Adadelta, Adam<br>
+#### batch_size: 
+number of samples per gradient update. <br>
+#### epochs: 
+number iterations of generation update. <br>
+
+#### Function:
+	def nn_classifier(x, y, hidenLayer, activation, regularizer,  optimizer, batch_size, epochs):
+	    model = Sequential()
+	    n_parameter = x.shape[1]
+	    model.add(Dense(hidenLayer[0], input_shape = (n_parameter,), activation = activation, name = "hidden",
+			   activity_regularizer = regularizers.l2(regularizer)))
+
+	    if len(hidenLayer) > 1:
+		for layer in range(1,len(hidenLayer)):
+		    name_in = "hidden" + str(layer)
+		    model.add(Dense(hidenLayer[layer], activation = activation, name = name_in,
+			   activity_regularizer = regularizers.l2(regularizer)))
+
+	    model.add(Dense(1, activation=activation,activity_regularizer = regularizers.l2(regularizer), 
+			    name='output'))
+
+	    model.compile(optimizer=optimizer,
+			  loss='binary_crossentropy',
+			  metrics=['accuracy'])
+
+	    X_train, X_test, Y_train, Y_test = train_test_split(x, y, test_size=0.2)
+
+	    model.fit(X_train, Y_train, epochs = epochs, batch_size = batch_size,verbose=0)
+
+	    lossi_Out, AccOut = model.evaluate(X_test,Y_test, verbose=0)
+	    lossi_In, AccIn = model.evaluate(X_train,Y_train, verbose=0)
+
+	    model.summary()
+    
+
+## Performance 
+### Linear Regression:
+
+### SVM:
+
+### Neural Network
