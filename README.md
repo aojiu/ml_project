@@ -2,7 +2,7 @@
 machine learning 2019 spring project
 
 ## Object
-using news, exchange rate, ralevence stock to pridict the Apple's stock price
+using news, exchange rate, ralevence stock to pridict the Apple's stock price change
 
 ## General method
 Collecting the news from 2011 to 2017. Then using sentiment analysis to evaluate the articals. Next processing the features from news analysis into the same days. Meanwhile, we have collected data contains exchange rate, ralevence stocks price, and Apple stock price. Now we have to merge news, exchange rate, ralevence stocks price with same day as features. Apple stock price is target. For each day that stock price and if it's prior day also has the stock price, then this day target would have features value of prior day. However, if it's prior day has no stock price, the feature would be average of all priors no stock days' features.  <br>
@@ -52,7 +52,19 @@ negative_relevant = relevance * avg(negative group features value)<br>
 The reason for creating three features is that we want explore the relevant artical with such emotions in general would have any relation with the stock price. <br>
 As result, we have two dataset. One contains all three group features, and Other only contains three features.
 
-### Other Market Price Dataset:
-## Exchange Rate Dataset:
+### Exchange Rate Dataset:
+https://github.com/datasets/exchange-rates/tree/master/data
+#### Features:
+	Euro exchange rate, Hong Kong exchange rate, Canada exchange rate, China exchange rate
+As we consider that Apple is global company, so when exchange rate changes, the sales rate toward to other countries would changes as well, which may influence the stock prices. 
 
+### Relevant Stock Price:
+#### Features:
 
+### APPLE Stock price as Y:
+https://finance.yahoo.com/quote/AAPL/history/ <br>
+plz write here how to process the y, detailed.<br>
+
+### Creat Two diffent typs y:
+for different model, we need different target value. Such as that we need continuous number for linear regression, but we need binary number for SVM and Neural Network models.
+As result, 
