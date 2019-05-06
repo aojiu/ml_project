@@ -66,5 +66,8 @@ https://finance.yahoo.com/quote/AAPL/history/ <br>
 plz write here how to process the y, detailed.<br>
 
 ### Creat Two diffent typs y:
-for different model, we need different target value. Such as that we need continuous number for linear regression, but we need binary number for SVM and Neural Network models.
-As result, 
+for different model, we need different target value. Such as that we need continuous number for linear regression, but we need binary number for SVM and Neural Network models.<br>
+As result, the target for continuous number is close price of each day for apple and the difference between close price and open price of day. The target for discrete number is when close price - open price less than 0, or more than 0.
+
+## Linear Regression:
+we used Polynomial Linear Regression with Ridge <br>
