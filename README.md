@@ -63,7 +63,13 @@ As we consider that Apple is global company, so when exchange rate changes, the 
 
 ### APPLE Stock price as Y:
 https://finance.yahoo.com/quote/AAPL/history/ <br>
-plz write here how to process the y, detailed.<br>
+It is the common sense that we use the n day's news to predict n+1 day's stock price. <br>
+And there are two situations that we need to consider:<br>
+<br>
+The day has stock price. Under such circumstance, we just need need to consider last day's news. Because n - 2 day's effects on the stock market have applied on the n - 1 day. So, we just get the stored news information from n - 1, and use it to predict n day's stock price.<br>
+<br>
+The other situation is that the day does not have stock price. This may happen during weekend and holidays. We will store all the consective non-stock day's news information, and wait until the first day where there is stock price. Then we take all the stored information and normalize the information. The reason for doing this is that we need to consider all possible effects of news during the non-stock days. Any of them has the possibiity to affect the next stock price day.<br>
+<br>
 
 ### Creat Two diffent typs y:
 for different model, we need different target value. Such as that we need continuous number for linear regression, but we need binary number for SVM and Neural Network models.<br>
