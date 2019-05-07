@@ -1,4 +1,4 @@
-# Machine Learning Project
+# Prediction of Apple Stock price using Social consensus & Relevant Financial Info
 Machine learning 2019 spring project
 
 ## Object
