@@ -82,6 +82,7 @@ We use 1 - 5 degree transformation for features, with Ridge of 0, 0.35, 0.5 and 
 ## SVM
 first we process the target dataset values with difference of open price and close price in a day into 1 and -1. <br>
 Next we apply three different kernal, linear, RBF, and Poly to two datasets with all the news parameters and only three news parameters. <br>
+Meanwhile, we also use the pca to increase the runtime and proformance of different kernal's SVM models
 
 ## Neural Network 
 We set up the Keras and TensorFlow for building the model. <br>
