@@ -60,6 +60,12 @@ As we consider that Apple is global company, so when exchange rate changes, the 
 
 ### Relevant Stock Price:
 #### Features:
+	QCOM, TXN, MSFT
+Did some researches on which public companies are related to APPLE and include some of them in our dataset.<br>
+Qualcomm: https://finance.yahoo.com/quote/QCOM/history/ <br>
+Texas Instrument: https://finance.yahoo.com/quote/TXN/history/ <br>
+Microsoft: https://finance.yahoo.com/quote/MSFT/history/ <br>
+
 
 ### APPLE Stock price as Y:
 https://finance.yahoo.com/quote/AAPL/history/ <br>
