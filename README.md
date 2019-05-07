@@ -139,7 +139,11 @@ number iterations of generation update. <br>
 
 ## Performance 
 ### Linear Regression:
-
+According to our model selection, the model that yields the best MSE performence for news emotion relevance is:<br>
+Degree two polynomial transfermation and 0.35 ridge regularization. <br>
+The best model for all features dataset is: <br>
+Degree two polynomial transfermation and 0.35 ridge regularization. <br>
 ### SVM:
-
+The Kernel methodd that yields highest testing accuracy is: <br>
+Linear kernel with c = 0.6 - 0.8 approximately. The accuracy is around 72% - 75%.<br>
 ### Neural Network
