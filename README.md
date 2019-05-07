@@ -1,8 +1,8 @@
 # Machine Learning Project
-machine learning 2019 spring project
+Machine learning 2019 spring project
 
 ## Object
-using news, exchange rate, ralevence stock to pridict the Apple's stock price change
+Using news, exchange rate, ralevence stock to pridict the Apple's stock price change
 
 ## General method
 Collecting the news from 2011 to 2017. Then using sentiment analysis to evaluate the articals. Next processing the features from news analysis into the same days. Meanwhile, we have collected data contains exchange rate, ralevence stocks price, and Apple stock price. Now we have to merge news, exchange rate, ralevence stocks price with same day as features. Apple stock price is target. For each day that stock price and if it's prior day also has the stock price, then this day target would have features value of prior day. However, if it's prior day has no stock price, the feature would be average of all priors no stock days' features.  <br>
@@ -15,18 +15,18 @@ url : https://www.kaggle.com/snapcrack/all-the-news#articles3.csv <br>
 In this dataset, there could be many articals in the same days. <br>
 
 #### Features:
-title, publication, author, date, year, month, url, content <br>
+Title, publication, author, date, year, month, url, content <br>
 We only use the content to do the sentiment analysis, and keep the date only. 
 
 #### Pre-processing News Dataset:
 ##### Sentiment Analysis:
-We using Empath sentiment anaylsis.<br>
-github: https://github.com/Ejhfast/empath-client<br>
+We use the Empath sentiment anaylsis.<br>
+Github: https://github.com/Ejhfast/empath-client<br>
 The sentiment analysis will analysis a string type of artical, and return a value of how ralevence to the target word.
 ###### example:
 	lexicon.analyze("he hit the other person", normalize=True)
 	# => {'help': 0.0, 'office': 0.0, 'violence': 0.2, 'dance': 0.0, 'money': 0.0, 'wedding': 0.0, ... )
-we use part of this return values as features for news. <br>
+We use part of this return values as features for news. <br>
 ##### Features for creating new news dataset
 There three groups features. <br>
 First group contains features that show how much a artical is relevant to the Apple Company<br>
@@ -147,3 +147,11 @@ Degree two polynomial transfermation and 0.35 ridge regularization. <br>
 The Kernel methodd that yields highest testing accuracy is: <br>
 Linear kernel with c = 0.6 - 0.8 approximately. The accuracy is around 72% - 75%.<br>
 ### Neural Network
+The model that yields the highest accuracy for new emotion relevance dataset is: <br>
+optimizer = rmsprop, activation = relu, batch_size = 130, epoch = 1000, regularizer = 0.001
+which yields in accuracy = 0.77186 and out sample accuracy = 0.71212 <br>
+<br>
+The model that yields the highest accuracy for all features dataset is: <br>
+optimizer = rmsprop, activation = sigmoid, batch_size = 30, epoch = 7000, regularizer = 0.001
+which yields in accuracy = 0.72254 and out sample accuracy = 0.72308 <br>
+<br>
