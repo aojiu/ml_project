@@ -22,7 +22,7 @@ We only use the content to do the sentiment analysis, and keep the date only.
 ##### Sentiment Analysis:
 We use the Empath sentiment anaylsis.<br>
 Github: https://github.com/Ejhfast/empath-client<br>
-The sentiment analysis will analysis a string type of artical, and return a value of how ralevence to the target word.
+The sentiment analysis will analyze a string type of artical, and return a value of how ralevence to the target word.
 ###### example:
 	lexicon.analyze("he hit the other person", normalize=True)
 	# => {'help': 0.0, 'office': 0.0, 'violence': 0.2, 'dance': 0.0, 'money': 0.0, 'wedding': 0.0, ... )
@@ -45,11 +45,11 @@ Next we merge these values for each article to each day since there many article
 ##### Separate into two datasets
 Now we have a dataset with three group features, but we want process more. Thus we create three new features, which are<br>
 ######
-	relevance, positive_relevant, negative_relevant
+	relevance, positive_relevance, negative_relevance
 relevance = avg(relevant group features value)<br>
-positive_relevant = relevance * avg(positive group features value)<br>
-negative_relevant = relevance * avg(negative group features value)<br>
-The reason for creating three features is that we want explore the relevant artical with such emotions in general would have any relation with the stock price. <br>
+positive_relevance = relevance * avg(positive group features value)<br>
+negative_relevance = relevance * avg(negative group features value)<br>
+The reason for creating three features is that we want to explore the relevant articals with such emotions in general would have any relation with the stock price. <br>
 As result, we have two dataset. One contains all three group features, and Other only contains three features.
 
 ### Exchange Rate Dataset:
@@ -95,17 +95,17 @@ We set up the Keras and TensorFlow for building the model. <br>
 For this two dataset, we change the target value to 1 and 0. If difference price is less than 0, then it is 0, otherwise it is 1. <br>
 For each datasets, the models would apply many different parameters. <br>
 #### hidenLayer : 
-hidden layer as list. eg [10,4,2] is three hiden layer with 10 neurons in first hiden layer, 4 neurons in second layer, and 2 neurons in last layer etc. <br>
+Hidden layer as list. eg [10,4,2] is three hiden layer with 10 neurons in first hiden layer, 4 neurons in second layer, and 2 neurons in last layer etc. <br>
 #### activation : 
-activation function. eg. elu, relu, sigmoid, hard_sigmoid, exponential, linear <br>
+Activation function. eg. elu, relu, sigmoid, hard_sigmoid, exponential, linear <br>
 #### activity_regularizer: 
-we want regulariz the value after caculating the activation function<br>
+We want regulariz the value after caculating the activation function<br>
 #### optimizer:  
-optimiz function that used to update the parameters each generation. eg. SGD, RMSprop, Adagrad, Adadelta, Adam<br>
+Optimiz function that used to update the parameters each generation. eg. SGD, RMSprop, Adagrad, Adadelta, Adam<br>
 #### batch_size: 
-number of samples per gradient update. <br>
+Number of samples per gradient update. <br>
 #### epochs: 
-number iterations of generation update. <br>
+Number iterations of generation update. <br>
 
 #### Function:
 	def nn_classifier(x, y, hidenLayer, activation, regularizer,  optimizer, batch_size, epochs):
