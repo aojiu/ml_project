@@ -77,7 +77,7 @@ The day has stock price. Under such circumstance, we just need need to consider 
 The other situation is that the day does not have stock price. This may happen during weekend and holidays. We will store all the consective non-stock day's news information, and wait until the first day where there is stock price. Then we take all the stored information and normalize the information. The reason for doing this is that we need to consider all possible effects of news during the non-stock days. Any of them has the possibiity to affect the next stock price day.<br>
 <br>
 
-### Creat Two diffent typs y:
+### Creat Two diffent types y:
 for different model, we need different target value. Such as that we need continuous number for linear regression, but we need binary number for SVM and Neural Network models.<br>
 As result, the target for continuous number is close price of each day for apple and the difference between close price and open price of day. The target for discrete number is when close price - open price less than 0, or more than 0.
 
